@@ -17,7 +17,7 @@ class OpenAINode:
                 }),
                 "system_prompt": ("STRING", {
                     "multiline": True,
-                    "default": "You are a prompt generation AI. Your task is to take a user input for a stable diffusion prompt and expand the supplied prompt in a stable diffusion format (comma seperated tags) to provide high quality images. Do not output anything other than a stable diffusion prompt."
+                    "default": "You are a prompt generation AI. Your task is to take a user input for a stable diffusion prompt and expand the supplied prompt in a stable diffusion format (relevant comma separated tags) to provide high quality images. Do not output anything other than a stable diffusion prompt."
                 }),
                 "user_header": ("STRING", {
                     "multiline": True,
@@ -105,8 +105,8 @@ class OpenAINode:
         # attempt to run VRAM-light: load the LLM, perform inference, and then unload the model.
         # want to be able to run it at the start of a workflow without screwing up vram limits afterwards.
         try:
-            response = requests.post(api_url + "/internal/model/load", headers = headers, data = load_args)
-            response.raise_for_status()
+            load_response = requests.post(api_url + "/internal/model/load", headers = headers, data = load_args)
+            load_response.raise_for_status()
         except Exception as e:
             print(f"Error: {str(e)}")
             return ("Sad Panda",)
@@ -121,8 +121,8 @@ class OpenAINode:
             return ("Sad Panda",)
 
         try:
-            response = requests.post(api_url + "/internal/model/unload", headers = headers, data = {})
-            response.raise_for_status()
+            unload_response = requests.post(api_url + "/internal/model/unload", headers = headers, data = {})
+            unload_response.raise_for_status()
         except Exception as e:
             print(f"Error: {str(e)}")
             return ("Sad Panda",)
