@@ -51,6 +51,14 @@ class OpenAINode:
                     "round": 0.01,
                     "display": "number"
                 }),
+                "repetition_penalty": ("FLOAT", {
+                    "default": 1,
+                    "min": 0.0,
+                    "max": 2,
+                    "step": 0.01,
+                    "round": 0.01,
+                    "display": "number"
+                }),
                 "max_tokens": ("INT", {
                         "default": 250,
                         "min": -1, 
@@ -71,7 +79,7 @@ class OpenAINode:
 
     CATEGORY = "OpenAIapi"
 
-    def get_completion(self, system_header, system_prompt, user_header, user_prompt, response_header, api_url, api_key, temperature, end_turn_token, max_tokens, seed, model_name):
+    def get_completion(self, system_header, system_prompt, user_header, user_prompt, response_header, api_url, api_key, temperature, repetition_penalty, end_turn_token, max_tokens, seed, model_name):
         # compose prompt.
         full_system_prompt = system_header + system_prompt + end_turn_token
         full_user_prompt = user_header + user_prompt + end_turn_token
@@ -100,6 +108,7 @@ class OpenAINode:
             "temperature":temperature,
             "max_tokens":max_tokens,
             "stop":end_turn_token,
+            "repetition_penalty": repetition_penalty,
         })
 
         # attempt to run VRAM-light: load the LLM, perform inference, and then unload the model.
