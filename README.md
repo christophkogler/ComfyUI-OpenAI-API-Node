@@ -11,7 +11,8 @@ This repository is based on [ComfyUI-OpenAINode](https://github.com/Electrofried
 requests  -  for post-ing to the API.
 
 ### Installation
-Use [ComfyUI-Manager](https://github.com/ltdrdata/ComfyUI-Manager): Manager > Custom Nodes Manager > Install via Git URL. You may have to [drop your security_level to normal-](https://github.com/ltdrdata/ComfyUI-Manager?tab=readme-ov-file#security-policy) to install it.  
+Use [ComfyUI-Manager](https://github.com/ltdrdata/ComfyUI-Manager): Manager > Custom Nodes Manager > Install via Git URL.  
+You may have to [drop your security_level to normal-](https://github.com/ltdrdata/ComfyUI-Manager?tab=readme-ov-file#security-policy) to install it.  
 OR  
 In your ComfyUI custom_nodes folder,  
 ```
@@ -38,6 +39,6 @@ pip install requests
 
 The seed input is there to allow a random seed to be input. It does not actually do anything to the image or text seed. Randomizing it each run will cause ComfyUI to re-prompt the LLM each time - for if you want to vary your prompt a bit. If you leave it fixed, then ComfyUI will cache the results and use the same prompt each time it runs, until you change the input.
 
-If attempting to run both the ComfyUI image generation and the LLM locally: Executing this node at the start of the workflow should work well. However, ComfyUI caches loaded models until the end of the workflow, so if you try to naively execute this node in the middle of your workflow, you are likely to push the LLM into RAM and get very slow inference times or outright failure to load. A VRAM clearing node of some kind, like the 'VRAM debug' node in [KJNodes for ComfyUI](https://github.com/kijai/ComfyUI-KJNodes) can help resolve this. 
+If attempting to run both the ComfyUI image generation and the LLM locally: Executing this node at the start of the workflow should work well. However, ComfyUI caches loaded models until the end of the workflow, so if you try to naively execute this node in the middle of your workflow, you are likely to push the LLM into RAM and get very slow inference times and possibly even failure to load. A VRAM clearing node of some kind, like the 'VRAM debug' node in [KJNodes for ComfyUI](https://github.com/kijai/ComfyUI-KJNodes) can help resolve this. 
 
 I will not provide help with running out of GPU memory (unless it is because THIS node isn't unloading models - then I might help).
