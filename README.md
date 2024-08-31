@@ -4,7 +4,7 @@
 
 A single simple node that provides LLM integration into ComfyUI workflows by calling an OpenAI API based server through a node. The server loads the requested LLM on demand and unloads it after use, freeing up any used VRAM. 
 
-This repository is based on [ComfyUI-OpenAINode](https://github.com/Electrofried/ComfyUI-OpenAINode), rewritten to suit my preferences. Improvements include fine-grain prompt format control, and VRAM freeing after LLM inference is complete.
+This repository is based on [ComfyUI-OpenAINode](https://github.com/Electrofried/ComfyUI-OpenAINode), rewritten to suit my preferences and operate better for completely local generation. Improvements include fine-grain prompt format control and VRAM freeing after LLM inference is complete.
 
 ### Dependencies
 
