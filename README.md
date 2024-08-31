@@ -11,7 +11,7 @@ This repository is based on [ComfyUI-OpenAINode](https://github.com/Electrofried
 requests  -  for post-ing to the API.
 
 ### Installation
-Use [ComfyUI-Manager](https://github.com/ltdrdata/ComfyUI-Manager): Manager > Custom Nodes Manager > Install via Git URL.  
+Use [ComfyUI-Manager](https://github.com/ltdrdata/ComfyUI-Manager): Manager > Custom Nodes Manager > Install via Git URL. You may have to [drop your security_level to normal-](https://github.com/ltdrdata/ComfyUI-Manager?tab=readme-ov-file#security-policy) to install it.  
 OR  
 In your ComfyUI custom_nodes folder,  
 ```
