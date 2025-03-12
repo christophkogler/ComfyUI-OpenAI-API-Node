@@ -16,7 +16,7 @@ You may have to [drop your security_level to normal-](https://github.com/ltdrdat
 OR  
 In your ComfyUI custom_nodes folder,  
 ```
-git clone https://github.com/christophkogler/ComfyUI-OpenAINode
+git clone https://github.com/christophkogler/ComfyUI-OpenAI-API-Node
 ```
 and then  
 ```
